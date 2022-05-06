@@ -14,7 +14,7 @@ def f(expression: str):
                         for right in rightRes:
                             res.append(eval(f'{left}{op}{right}'))
         return res
-
+        
     return dfs(0, len(expression) - 1)
 
 
