@@ -1,4 +1,5 @@
 class LRUCache:
+
     def __init__(self, limit):
         self.limit = limit
         self.hash = {}
@@ -32,7 +33,7 @@ class LRUCache:
         if node is None:
             return
         self.remove_node(node)
-        self.hash.remove(key)
+        self.hash.pop(key)
 
     def refresh_node(self, node):
         # 如果访问的是尾节点，无需移动节点
@@ -58,7 +59,7 @@ class LRUCache:
             self.head.pre = None
         else:
             # 移除中间节点
-            node.pre.next = node.pre
+            node.pre.next = node.next
             node.next.pre = node.pre
         return node.key
 
@@ -71,8 +72,17 @@ class LRUCache:
         if self.head is None:
             self.head = node
 
+    def test(self):
+        ans = []
+        p = self.head
+        while p:
+            ans.append(p.value)
+            p = p.next
+        return ans
+
 
 class Node:
+
     def __init__(self, key, value):
         self.key = key
         self.value = value
@@ -87,13 +97,12 @@ lruCache.put("003", "用户3信息")
 lruCache.put("004", "用户4信息")
 lruCache.put("005", "用户5信息")
 print(lruCache.get("002"))
+print(lruCache.test())
 lruCache.put("004", "用户4信息更新")
+print(lruCache.test())
 lruCache.put("006", "用户6信息")
+print(lruCache.test())
 print(lruCache.get("001"))
 print(lruCache.get("006"))
-
-
-
-
-
-
+lruCache.remove('002')
+print(lruCache.test())

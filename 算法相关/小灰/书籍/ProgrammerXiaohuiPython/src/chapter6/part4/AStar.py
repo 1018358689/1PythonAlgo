@@ -114,10 +114,4 @@ for i in range(0, len(MAZE)):
         else:
             print(str(MAZE[i][j]) + ", ", end='')
     print()
-
-
-
-
-
-
-
+    
