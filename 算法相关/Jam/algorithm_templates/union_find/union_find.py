@@ -37,6 +37,7 @@ def in_union_find_logic():
 
 # full object-oriented version
 class Union:
+
     def __init__(self, value):
         self.v = value
         self.root = self
@@ -44,6 +45,7 @@ class Union:
 
 
 class UnionFind:
+
     def __init__(self):
         self.us = {}
 
