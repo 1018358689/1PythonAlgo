@@ -3,15 +3,15 @@ from selenium import webdriver
 import time
 from random import randint
 import datetime
-from fake_useragent import UserAgent
+# from fake_useragent import UserAgent
 
-ua = UserAgent()
+# ua = UserAgent()
 # for _ in range(10):
 #     print(ua.random)
 opt = webdriver.ChromeOptions()
 opt.add_argument('--ignore-certificate-errors')
 # opt.add_argument('--ignore-ssl-errors')
-opt.add_argument(f'--user-agent={ua.random}')
+# opt.add_argument(f'--user-agent={ua.random}')
 
 
 # 判断当前时间是否在（starTime~endTime）时间范围内
@@ -22,7 +22,7 @@ def isDuringThatTime(startTime, endTime):
     return start_time <= now_time <= end_time
 
 
-for id in range(258, 272):
+for id in range(272, 290):
     #1.创建Chrome浏览器对象，这会在电脑上在打开一个浏览器窗口
     browser = webdriver.Chrome(executable_path="E:\chromedriver", options=opt)
     #2.通过浏览器向服务器发送URL请求
